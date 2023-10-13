@@ -1,14 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screens.info.InfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/info_year"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="2001"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/info_fuel_type"/>
+
+    <TextView
+
+        android:id="@+id/info_fuel_type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="газ/бензин"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/info_engine_volume"
+        app:layout_constraintStart_toEndOf="@+id/info_year"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/info_engine_volume"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="1.4"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/info_fuel_type"/>
+
+    <TextView
+        android:id="@+id/info_win_code"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="WV000000000000"
+        android:textSize="18dp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/info_fuel_type" />
+
+    <TextView
+        android:id="@+id/info_i_driving_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Я їзжу"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info_win_code" />
+
+    <TextView
+        android:id="@+id/info_i_driving"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 років, 0 місяців, 0 днів"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info_i_driving_title" />
+
+    <TextView
+        android:id="@+id/info_i_drove_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Я проїхав:"
+        android:gravity="end"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/info_i_drove"
+        app:layout_constraintTop_toBottomOf="@+id/info_i_driving" />
+
+    <TextView
+        android:id="@+id/info_i_drove"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="0000 км"
+        android:textStyle="bold"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/info_i_drove_title"
+        app:layout_constraintTop_toBottomOf="@+id/info_i_driving" />
+
+    <TextView
+        android:id="@+id/info_general_expenses_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Загаліні витрати:"
+        android:gravity="end"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toStartOf="@id/info_general_expenses"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info_i_drove_title" />
+
+    <TextView
+        android:id="@+id/info_general_expenses"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="0000 грн"
+        android:textStyle="bold"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/info_general_expenses_title"
+        app:layout_constraintTop_toBottomOf="@+id/info_i_drove" />
+
+    <TextView
+        android:id="@+id/info_one_km_cost_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Витрати на 1 км:"
+        android:gravity="end"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toStartOf="@id/info_one_km_cost"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info_general_expenses_title" />
+
+    <TextView
+        android:id="@+id/info_one_km_cost"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="0.00 грн"
+        android:textStyle="bold"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/info_one_km_cost_title"
+        app:layout_constraintTop_toBottomOf="@+id/info_general_expenses" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
