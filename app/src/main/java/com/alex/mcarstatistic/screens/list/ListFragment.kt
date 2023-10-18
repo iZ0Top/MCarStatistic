@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.alex.mcarstatistic.R
 import com.alex.mcarstatistic.databinding.FragmentListBinding
 
@@ -20,9 +21,18 @@ class ListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
+    ): View {
         _binding = FragmentListBinding.inflate(inflater, container, false)
+
+
+        binding.btnToInfo.setOnClickListener {
+            findNavController().navigate(R.id.action_listFragment_to_infoFragment)
+        }
+        binding.btnToSetting.setOnClickListener {
+            findNavController().navigate(R.id.action_listFragment_to_settingFragment)
+        }
+
+
         return binding.root
     }
 }

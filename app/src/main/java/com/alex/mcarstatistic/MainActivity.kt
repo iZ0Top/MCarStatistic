@@ -21,9 +21,12 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        val n = findNavController(R.id.fragmentContainerView)
+        bottomNavigationView = binding.menuBottom
 
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navController = navHostFragment.navController
 
+        NavigationUI.setupActionBarWithNavController(this, navController)
 
     }
 }

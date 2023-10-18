@@ -2,4 +2,7 @@
     <string name="app_name">MCarStatistic</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_date">Дата</string>
+    <string name="text_mileage">Пробіг</string>
+    <string name="text_km">км</string>
 </resources>
