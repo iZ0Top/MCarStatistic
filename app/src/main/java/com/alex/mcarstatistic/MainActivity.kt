@@ -26,10 +26,7 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         NavigationUI.setupActionBarWithNavController(this, navController)
-
-        val bottomNavConfig = AppBarConfiguration(setOf(R.id.fragment_list, R.id.fragment_info, R.id.fragment_setting))
-        setupActionBarWithNavController(navController, bottomNavConfig)
-        bottomNavigationView.setupWithNavController(navController)
+        NavigationUI.setupWithNavController(binding.menuBottom, navController)
 
 
     }
