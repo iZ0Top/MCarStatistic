@@ -25,14 +25,9 @@ class ListFragment : Fragment() {
         _binding = FragmentListBinding.inflate(inflater, container, false)
 
 
-        binding.btnToInfo.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_infoFragment)
-        }
-        binding.btnToSetting.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_settingFragment)
-        }
-
-
         return binding.root
     }
+
+
+
 }

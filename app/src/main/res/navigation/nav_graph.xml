@@ -3,63 +3,63 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_host"
-    app:startDestination="@id/listFragment">
+    app:startDestination="@id/fragment_list">
 
     <fragment
-        android:id="@+id/addFragment"
+        android:id="@+id/fragment_add"
         android:name="com.alex.mcarstatistic.screens.add.AddFragment"
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" >
         <action
             android:id="@+id/action_addFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            app:destination="@id/fragment_list" />
     </fragment>
     <fragment
-        android:id="@+id/splash"
+        android:id="@+id/fragment_splash"
         android:name="com.alex.mcarstatistic.screens.splash.Splash"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splash_to_listFragment"
-            app:destination="@id/listFragment" />
+            app:destination="@id/fragment_list" />
     </fragment>
     <fragment
-        android:id="@+id/infoFragment"
+        android:id="@+id/fragment_info"
         android:name="com.alex.mcarstatistic.screens.info.InfoFragment"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" >
         <action
             android:id="@+id/action_infoFragment_to_settingFragment"
-            app:destination="@id/settingFragment" />
+            app:destination="@id/fragment_setting" />
         <action
             android:id="@+id/action_infoFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            app:destination="@id/fragment_list" />
     </fragment>
     <fragment
-        android:id="@+id/settingFragment"
+        android:id="@+id/fragment_setting"
         android:name="com.alex.mcarstatistic.screens.setting.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" >
         <action
             android:id="@+id/action_settingFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            app:destination="@id/fragment_list" />
         <action
             android:id="@+id/action_settingFragment_to_infoFragment"
-            app:destination="@id/infoFragment" />
+            app:destination="@id/fragment_info" />
     </fragment>
     <fragment
-        android:id="@+id/listFragment"
+        android:id="@+id/fragment_list"
         android:name="com.alex.mcarstatistic.screens.list.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_listFragment_to_infoFragment"
-            app:destination="@id/infoFragment" />
+            app:destination="@id/fragment_info" />
         <action
             android:id="@+id/action_listFragment_to_settingFragment"
-            app:destination="@id/settingFragment" />
+            app:destination="@id/fragment_setting" />
         <action
             android:id="@+id/action_listFragment_to_addFragment"
-            app:destination="@id/addFragment" />
+            app:destination="@id/fragment_add" />
     </fragment>
 </navigation>
