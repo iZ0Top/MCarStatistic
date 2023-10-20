@@ -20,13 +20,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        bottomNavigationView = binding.menuBottom
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-        val navController = navHostFragment.navController
 
-        NavigationUI.setupActionBarWithNavController(this, navController)
-        NavigationUI.setupWithNavController(binding.menuBottom, navController)
 
 
     }

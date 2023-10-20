@@ -1,4 +1,4 @@
-package com.alex.mcarstatistic.screens.setting
+package com.alex.mcarstatistic.screens.tabs.setting
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -7,16 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.alex.mcarstatistic.screens.list.ListFragment"
+        android:name="com.alex.mcarstatistic.screens.tabs.list.ListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" >
-        <action
-            android:id="@+id/action_listFragment_to_addFragment"
-            app:destination="@id/addFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/addFragment"
-        android:name="com.alex.mcarstatistic.screens.add.AddFragment"
-        android:label="fragment_add"
-        tools:layout="@layout/fragment_add" />
+        tools:layout="@layout/fragment_list" />
 </navigation>

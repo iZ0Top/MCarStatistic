@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.list.ListFragment">
+    tools:context=".screens.tabs.list.ListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_recycler_view"
@@ -27,21 +27,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_to_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="to info fragment"
-        app:layout_constraintBottom_toTopOf="@+id/list_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_to_setting"
+        android:id="@+id/btn_to_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="to setting fragment"
+        android:text="to add fragment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

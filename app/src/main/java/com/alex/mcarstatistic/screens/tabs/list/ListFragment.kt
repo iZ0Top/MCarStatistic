@@ -1,4 +1,4 @@
-package com.alex.mcarstatistic.screens.list
+package com.alex.mcarstatistic.screens.tabs.list
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.alex.mcarstatistic.R
 import com.alex.mcarstatistic.databinding.FragmentListBinding
+import kotlin.random.Random
 
 class ListFragment : Fragment() {
 
@@ -25,9 +26,19 @@ class ListFragment : Fragment() {
         _binding = FragmentListBinding.inflate(inflater, container, false)
 
 
+        binding.btnToAdd.setOnClickListener {
+            val rNumber = Random.nextInt().toString()
+        }
+
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+    }
 
 
 }
+

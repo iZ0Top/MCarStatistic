@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/infoFragment"
-        android:name="com.alex.mcarstatistic.screens.info.InfoFragment"
+        android:name="com.alex.mcarstatistic.screens.tabs.info.InfoFragment"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" />
 </navigation>

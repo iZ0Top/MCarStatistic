@@ -1,4 +1,4 @@
-package com.alex.mcarstatistic.screens.info
+package com.alex.mcarstatistic.screens.tabs.info
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
