@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.alex.mcarstatistic.R
 import com.alex.mcarstatistic.databinding.FragmentListBinding
@@ -28,6 +29,10 @@ class ListFragment : Fragment() {
 
         binding.btnToAdd.setOnClickListener {
             val rNumber = Random.nextInt().toString()
+            val topLevelHost = requireActivity().supportFragmentManager.findFragmentById(R.id.main_fragment_container) as NavHostFragment
+            val topNavController = topLevelHost.navController
+
+            topNavController.navigate(R.id.addFragment)
         }
 
         return binding.root
