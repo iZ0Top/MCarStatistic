@@ -1,11 +1,11 @@
 package com.alex.mcarstatistic.model
 
 import java.util.Calendar
-import java.util.Date
 
-data class RepairWork(
+data class ServiceEvent(
     val id: Int,
-    val description: String,
-    val cost: Int,
+    val carId: Int,
+    val mileage: Int,
+    val sum: Int,
     val date: Calendar,
 )

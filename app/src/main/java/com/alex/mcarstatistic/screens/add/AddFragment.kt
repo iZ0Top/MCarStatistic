@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavArgs
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.RecyclerView
 import com.alex.mcarstatistic.R
 import com.alex.mcarstatistic.databinding.FragmentAddBinding
 
@@ -25,6 +26,10 @@ class AddFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAddBinding.inflate(inflater, container, false)
+
+
+        val recyclerView = binding.addRecyclerview
+
 
 
         return binding.root

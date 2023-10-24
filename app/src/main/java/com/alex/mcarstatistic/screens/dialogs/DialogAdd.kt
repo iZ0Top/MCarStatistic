@@ -12,21 +12,22 @@ import androidx.lifecycle.LifecycleOwner
 import com.alex.mcarstatistic.databinding.DialogAddPartsBinding
 import com.alex.mcarstatistic.model.SparePart
 import java.util.Calendar
-import java.util.Date
-import kotlin.math.cos
 
 class DialogAdd: DialogFragment() {
 
     private var _binding: DialogAddPartsBinding? = null
     private val binding get() = _binding!!
 
-    private var sparePart: SparePart? = null
+    private var editedSparePart: SparePart? = null
+    private var parentId: Int = 0
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         _binding = DialogAddPartsBinding.inflate(layoutInflater)
 
-        sparePart = arguments?.getSerializable(BUNDLE_KEY) as SparePart
+
+        parentId = arguments?.getInt(BUNDLE_PARENT_KEY) as Int
+        editedSparePart = arguments?.getSerializable(BUNDLE_PART_KEY) as SparePart
 
         val dialog = AlertDialog.Builder(requireActivity())
             .setView(binding.root)
@@ -35,17 +36,32 @@ class DialogAdd: DialogFragment() {
             .setNegativeButton("Cancel", null)
             .create()
 
+        if (editedSparePart != null) { setSparePart() }
+
         dialog.setOnShowListener {
             dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener {
 
                 if (validate()) return@setOnClickListener
+
+                //add to database
                 createSparePart()
+
                 dialog.dismiss()
             }
         }
         return dialog
     }
 
+    private fun setSparePart(){
+
+        with(binding){
+            etName.setText(editedSparePart?.name)
+            etPartnumber.setText(editedSparePart?.partNumber)
+            etOriginalPartnumber.setText(editedSparePart?.originalPartNumber)
+            etNumber.setText(editedSparePart?.number.toString())
+            etCost.setText(editedSparePart?.cost.toString())
+        }
+    }
 
     private fun validate(): Boolean{
 
@@ -74,14 +90,14 @@ class DialogAdd: DialogFragment() {
 
     private fun createSparePart(){
 
-        val sparePart = SparePart(
-            id = 0,
+        val newSparePart = SparePart(
+            id = editedSparePart?.id ?: 0,
             name = binding.etName.toString(),
             partNumber = binding.etPartnumber.toString(),
             originalPartNumber = binding.etOriginalPartnumber.toString(),
             cost = binding.etCost.toString().toInt(),
             number = binding.etNumber.toString().toInt(),
-            date = Calendar.getInstance()
+            date = editedSparePart?.date ?: Calendar.getInstance()
         )
     }
 
@@ -89,7 +105,8 @@ class DialogAdd: DialogFragment() {
 
         private val DIALOG_ADD_TAG = "DialogAdd_tag"
         private val DIALOG_ADD_REQUEST_KEY = "DialogAdd_request_key"
-        private val BUNDLE_KEY = "bundle_key"
+        private val BUNDLE_PART_KEY = "bundle_part_key"
+        private val BUNDLE_PARENT_KEY = "bundle_parent_key"
 
         fun showDialogAdd(fManager: FragmentManager, sparePart: SparePart?){
             val dialog = DialogAdd()
@@ -97,14 +114,14 @@ class DialogAdd: DialogFragment() {
 //                val bundle = Bundle()
 //                bundle.putSerializable(BUNDLE_KEY, sparePart)
 //                dialog.arguments = bundle
-                dialog.arguments = bundleOf(BUNDLE_KEY to sparePart)
+                dialog.arguments = bundleOf(BUNDLE_PART_KEY to sparePart)
             }
             dialog.show(fManager, DIALOG_ADD_TAG)
         }
 
         fun setupDialogAddListener(fManager: FragmentManager, lcOwner: LifecycleOwner, listener: (SparePart) -> Unit){
             fManager.setFragmentResultListener(DIALOG_ADD_REQUEST_KEY, lcOwner, FragmentResultListener { _, result ->
-                val sparePart = result.getSerializable(BUNDLE_KEY) as SparePart
+                val sparePart = result.getSerializable(BUNDLE_PART_KEY) as SparePart
                 listener.invoke(sparePart)
             })
         }
