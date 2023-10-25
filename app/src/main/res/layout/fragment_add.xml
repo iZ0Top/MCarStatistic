@@ -35,22 +35,22 @@
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:text="@string/text_date"
-                app:layout_constraintBottom_toBottomOf="@+id/add_date_til"
+                app:layout_constraintBottom_toBottomOf="@+id/add_et_lay_date"
                 app:layout_constraintEnd_toEndOf="@+id/add_mileage_title"
                 app:layout_constraintStart_toStartOf="@+id/add_mileage_title"
-                app:layout_constraintTop_toTopOf="@+id/add_date_til" />
+                app:layout_constraintTop_toTopOf="@+id/add_et_lay_date" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add_date_til"
+                android:id="@+id/add_et_lay_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                app:layout_constraintEnd_toEndOf="@id/add_mileage_til"
-                app:layout_constraintStart_toStartOf="@id/add_mileage_til"
+                app:layout_constraintEnd_toEndOf="@id/add_et_lay_mileage"
+                app:layout_constraintStart_toStartOf="@id/add_et_lay_mileage"
                 app:layout_constraintTop_toTopOf="parent" >
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add_date_et"
+                    android:id="@+id/add_et_date"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="01.01.0001"
@@ -67,10 +67,10 @@
                 android:text="@string/text_mileage"
                 android:gravity="end"
                 android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toStartOf="@id/add_mileage_til"
-                app:layout_constraintBottom_toBottomOf="@+id/add_mileage_til"
+                app:layout_constraintEnd_toStartOf="@id/add_et_lay_mileage"
+                app:layout_constraintBottom_toBottomOf="@+id/add_et_lay_mileage"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/add_mileage_til" />
+                app:layout_constraintTop_toTopOf="@+id/add_et_lay_mileage" />
 
             <TextView
                 android:id="@+id/add_mileage_title2"
@@ -79,13 +79,13 @@
                 android:layout_marginEnd="32dp"
                 android:text="@string/text_km"
                 android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/add_mileage_til"
+                app:layout_constraintBottom_toBottomOf="@+id/add_et_lay_mileage"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/add_mileage_til"
-                app:layout_constraintTop_toTopOf="@+id/add_mileage_til" />
+                app:layout_constraintStart_toEndOf="@+id/add_et_lay_mileage"
+                app:layout_constraintTop_toTopOf="@+id/add_et_lay_mileage" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add_mileage_til"
+                android:id="@+id/add_et_lay_mileage"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -94,11 +94,11 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toStartOf="@id/add_mileage_title2"
                 app:layout_constraintStart_toEndOf="@+id/add_mileage_title"
-                app:layout_constraintTop_toBottomOf="@+id/add_date_til"
+                app:layout_constraintTop_toBottomOf="@+id/add_et_lay_date"
                 app:layout_constraintBottom_toBottomOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add_mileage_et"
+                    android:id="@+id/add_et_mileage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"

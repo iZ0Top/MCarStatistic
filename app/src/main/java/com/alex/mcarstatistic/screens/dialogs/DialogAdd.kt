@@ -8,6 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentResultListener
+import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.LifecycleOwner
 import com.alex.mcarstatistic.databinding.DialogAddPartsBinding
 import com.alex.mcarstatistic.model.SparePart
@@ -25,9 +26,10 @@ class DialogAdd: DialogFragment() {
 
         _binding = DialogAddPartsBinding.inflate(layoutInflater)
 
+        if (arguments != null){
+            editedSparePart = arguments?.getSerializable(BUNDLE_PART_KEY) as SparePart
+        }
 
-        parentId = arguments?.getInt(BUNDLE_PARENT_KEY) as Int
-        editedSparePart = arguments?.getSerializable(BUNDLE_PART_KEY) as SparePart
 
         val dialog = AlertDialog.Builder(requireActivity())
             .setView(binding.root)
@@ -44,8 +46,9 @@ class DialogAdd: DialogFragment() {
                 if (validate()) return@setOnClickListener
 
                 //add to database
-                createSparePart()
+                val sparePart = createSparePart()
 
+                setFragmentResult(DIALOG_ADD_REQUEST_KEY, bundleOf(BUNDLE_PART_KEY to sparePart))
                 dialog.dismiss()
             }
         }
@@ -88,17 +91,19 @@ class DialogAdd: DialogFragment() {
         return status
     }
 
-    private fun createSparePart(){
+    private fun createSparePart(): SparePart{
 
-        val newSparePart = SparePart(
-            id = editedSparePart?.id ?: 0,
-            name = binding.etName.toString(),
-            partNumber = binding.etPartnumber.toString(),
-            originalPartNumber = binding.etOriginalPartnumber.toString(),
-            cost = binding.etCost.toString().toInt(),
-            number = binding.etNumber.toString().toInt(),
-            date = editedSparePart?.date ?: Calendar.getInstance()
-        )
+        return SparePart(
+            id = 0,
+            eventId = 0,
+            type = 0,
+            name = binding.etName.text.toString(),
+            partNumber = binding.etPartnumber.text.toString(),
+            originalPartNumber = binding.etOriginalPartnumber.text.toString(),
+            number = binding.etNumber.text.toString().toInt(),
+            cost = binding.etCost.text.toString().toInt(),
+            date = Calendar.getInstance()
+            )
     }
 
     companion object{

@@ -26,9 +26,8 @@ class ListFragment : Fragment() {
     ): View {
         _binding = FragmentListBinding.inflate(inflater, container, false)
 
-
         binding.btnToAdd.setOnClickListener {
-            val rNumber = Random.nextInt().toString()
+
             val topLevelHost = requireActivity().supportFragmentManager.findFragmentById(R.id.main_fragment_container) as NavHostFragment
             val topNavController = topLevelHost.navController
 
