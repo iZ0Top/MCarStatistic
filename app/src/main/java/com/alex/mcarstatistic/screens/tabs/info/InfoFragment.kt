@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.alex.mcarstatistic.R
 import com.alex.mcarstatistic.databinding.FragmentInfoBinding
 
 class InfoFragment : Fragment() {

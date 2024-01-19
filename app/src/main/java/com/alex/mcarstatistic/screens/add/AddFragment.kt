@@ -11,9 +11,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alex.mcarstatistic.databinding.FragmentAddBinding
+import com.alex.mcarstatistic.model.ServiceEvent
 import com.alex.mcarstatistic.model.SparePart
 import com.alex.mcarstatistic.screens.dialogs.DialogAdd
 import java.util.Calendar
+import java.util.Date
 
 class AddFragment : Fragment() {
 
@@ -22,7 +24,10 @@ class AddFragment : Fragment() {
 
     private lateinit var adapter: AddAdapter
     private lateinit var layoutManager: LinearLayoutManager
+
     private lateinit var listObserver: Observer<List<SparePart>>
+    private lateinit var dateObserver: Observer<Calendar>
+
     private lateinit var viewModel: AddViewModel
 
 
@@ -37,6 +42,7 @@ class AddFragment : Fragment() {
     ): View {
         _binding = FragmentAddBinding.inflate(inflater, container, false)
 
+
         layoutManager = LinearLayoutManager(requireContext())
         adapter = AddAdapter()
 
@@ -47,16 +53,6 @@ class AddFragment : Fragment() {
         binding.addRecyclerview.layoutManager = layoutManager
         binding.addRecyclerview.adapter = adapter
 
-        binding.addEtLayDate.setOnClickListener {
-            DatePickerDialog(
-                requireContext(),
-                DatePickerDialog.OnDateSetListener { datePicker, i, i2, i3 ->
-                    val newDate = Calendar.getInstance()
-                    newDate.set(i, i2, i3)
-                },
-
-                ).show()
-        }
 
         binding.fabAddPart.setOnClickListener {
             showAddPartDialog()
@@ -65,22 +61,23 @@ class AddFragment : Fragment() {
         return binding.root
     }
 
-
     private fun initObservers() {
         listObserver = Observer {
             adapter.setList(it)
         }
+        dateObserver = Observer {
+        }
+
     }
 
     private fun setupObservers() {
+
         viewModel.listLiveData.observe(viewLifecycleOwner, listObserver)
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
     }
 
 

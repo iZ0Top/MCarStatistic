@@ -3,6 +3,7 @@ package com.alex.mcarstatistic.screens.dialogs
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
@@ -43,8 +44,7 @@ class DialogAdd: DialogFragment() {
         dialog.setOnShowListener {
             dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener {
 
-                if (validate()) return@setOnClickListener
-
+                if (!validate()) return@setOnClickListener
                 //add to database
                 val sparePart = createSparePart()
 
@@ -70,11 +70,13 @@ class DialogAdd: DialogFragment() {
 
         var status = true
 
-        val name = binding.etName.toString()
-        val cost = binding.etCost.toString().toIntOrNull()
-        val number = binding.etNumber.toString().toIntOrNull()
+        val name = binding.etName.text.toString()
+        val cost = binding.etCost.text.toString().toIntOrNull()
+        val number = binding.etNumber.text.toString().toIntOrNull()
 
-        if (name.isEmpty()) {
+        Log.d("log", "name is blank = ${name.isBlank()}, or name is empty = ${name.isEmpty()} | name = $name" )
+
+        if (name.isBlank()) {
             binding.etLayName.error = "Потрбіно вказати назву деталі"
             status = false
         }
